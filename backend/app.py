@@ -3,6 +3,10 @@ from flask_cors import CORS
 import io
 import cv2
 import numpy as np
+import threading
+import time
+import requests
+import os
 
 from aes_cipher import AESCipher
 from steganography import LSBSteganography
@@ -10,6 +14,35 @@ from steganography import LSBSteganography
 app = Flask(__name__)
 # Enable CORS for the frontend React app running on a different port
 CORS(app)
+
+@app.route('/api/ping', methods=['GET'])
+def ping():
+    return jsonify({'status': 'alive'}), 200
+
+def keep_alive():
+    """
+    Pings the public URL of this service every 1 minute to prevent Render from sleeping.
+    """
+    # RENDER_EXTERNAL_URL is automatically set by Render. 
+    # If not set, we'll try to find it or exit.
+    url = os.environ.get('RENDER_EXTERNAL_URL')
+    if not url:
+        return
+
+    ping_url = f"{url.rstrip('/')}/api/ping"
+    
+    # Wait for the server to fully initialize
+    time.sleep(30)
+    
+    while True:
+        try:
+            requests.get(ping_url, timeout=10)
+        except Exception:
+            pass
+        time.sleep(60) # 1 minute interval
+
+# Start the background thread
+threading.Thread(target=keep_alive, daemon=True).start()
 
 @app.route('/api/encrypt', methods=['POST'])
 def encrypt():
