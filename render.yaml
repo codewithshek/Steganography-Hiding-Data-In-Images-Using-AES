@@ -1,0 +1,30 @@
+services:
+  # 🐍 Backend: Flask API
+  - type: web
+    name: obscura-backend
+    env: python
+    region: ohio
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+
+  # ⚛️ Frontend: React (Vite)
+  - type: static
+    name: obscura-frontend
+    env: static
+    region: ohio
+    plan: free
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    publishDir: dist
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          type: web
+          name: obscura-backend
+          property: host
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

@@ -34,7 +34,6 @@ export default function App() {
   const [encLoading, setEncLoading] = useState(false);
   const [encError, setEncError] = useState<string | null>(null);
   const [encResultUrl, setEncResultUrl] = useState<string | null>(null);
-  const [encResultBlob, setEncResultBlob] = useState<Blob | null>(null);
 
   // -- DECRYPTION STATE --
   const [decFile, setDecFile] = useState<File | null>(null);
@@ -77,7 +76,6 @@ export default function App() {
       setEncFile(file);
       setEncPreview(URL.createObjectURL(file));
       setEncResultUrl(null);
-      setEncResultBlob(null);
     }
   };
 
@@ -97,7 +95,6 @@ export default function App() {
     setEncLoading(true);
     setEncError(null);
     setEncResultUrl(null);
-    setEncResultBlob(null);
 
     const formData = new FormData();
     formData.append("image", encFile);
@@ -124,7 +121,6 @@ export default function App() {
       const blob = await response.blob();
       const url = URL.createObjectURL(blob);
       setEncResultUrl(url);
-      setEncResultBlob(blob);
 
       // Auto-populate the decryption side!
       const transferFile = new File([blob], "secure-payload.png", {
