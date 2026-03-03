@@ -28,7 +28,7 @@ Unlike standard steganography tools, employs a dual-layered approach:
 ## 📷 Pictures
 
 |          Ouput         | 
-| ![input.png](input.png) |
+![output.png](output.png) |
 
 ## 🏗️ Technical Architecture
 
