@@ -4,15 +4,41 @@
   --font-serif: "Cormorant Garamond", serif;
   --font-sans: "Inter", sans-serif;
 
-  --color-noir-900: #18181b;
-  --color-noir-800: #27272a;
-  --color-noir-700: #3f3f46;
+  --color-noir-900: var(--noir-900);
+  --color-noir-800: var(--noir-800);
+  --color-noir-700: var(--noir-700);
 
-  --color-paper-100: #f4f4f0;
-  --color-paper-200: #e8e8e3;
+  --color-paper-100: var(--paper-100);
+  --color-paper-200: var(--paper-200);
 
-  --color-accent-gold: #c3a343;
-  --color-accent-crimson: #8b0000;
+  --color-accent-gold: var(--accent-gold);
+  --color-accent-crimson: var(--accent-crimson);
+}
+
+:root {
+  /* LIGHT THEME (High Contrast) */
+  --noir-900: #ffffff;
+  --noir-800: #f4f4f5; /* Visible form background */
+  --noir-700: #a1a1aa; /* Stronger borders */
+
+  --paper-100: #000000; /* Pure black text */
+  --paper-200: #27272a;
+
+  --accent-gold: #b45309; /* Intense gold for light mode */
+  --accent-crimson: #b91c1c;
+}
+
+.dark {
+  /* DARK THEME (High Contrast) */
+  --noir-900: #09090b; /* Very dark background */
+  --noir-800: #18181b; /* Visible form background */
+  --noir-700: #52525b; /* Stronger borders */
+
+  --paper-100: #ffffff; /* Pure white text */
+  --paper-200: #f4f4f5;
+
+  --accent-gold: #fbbf24; /* Bright gold for dark mode */
+  --accent-crimson: #ef4444;
 }
 
 body {

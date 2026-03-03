@@ -12,6 +12,7 @@ import {
 import gsap from "gsap";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { ThemeToggle } from "./components/ThemeToggle";
 
 /** Utility for clean tailwind classes */
 function cn(...inputs: ClassValue[]) {
@@ -217,8 +218,9 @@ export default function App() {
             Echoes for the chosen
           </h1>
         </div>
-        <div className="max-w-xs text-right">
-          <p className="text-sm text-zinc-500 leading-relaxed font-sans">
+        <div className="max-w-xs text-right flex flex-col items-end gap-4">
+          <ThemeToggle />
+          <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed font-sans">
             Cryptographic / Steganography alchemy. AES‑256 fused with
             deterministic LSB image matrices. What the eye beholds hides what
             the mind knows.
@@ -258,7 +260,7 @@ export default function App() {
             {/* Image Upload */}
             <div className="space-y-3">
               <label className="text-xs uppercase tracking-[0.15em] text-zinc-500 font-medium">
-                Cover Vessel
+                Cover Image
               </label>
               <div className="relative group/upload">
                 <input
@@ -280,7 +282,7 @@ export default function App() {
                     <img
                       src={encPreview}
                       alt="Cover"
-                      className="w-full h-full object-cover opacity-90 grayscale-[0.2] mix-blend-luminosity"
+                      className="w-full h-full object-cover opacity-100"
                     />
                   ) : (
                     <div className="text-center px-6">
@@ -306,7 +308,7 @@ export default function App() {
                 value={encMessage}
                 onChange={(e) => setEncMessage(e.target.value)}
                 placeholder="Transcribe data to be encrypted..."
-                className="w-full bg-noir-900/50 border border-noir-700 rounded-lg p-4 text-paper-100 placeholder:text-zinc-600 focus:outline-none focus:border-accent-gold hover:border-accent-gold hover:shadow-[0_0_15px_rgba(195,163,67,0.3)] focus:shadow-[0_0_15px_rgba(195,163,67,0.4)] transition-all duration-300 resize-none font-sans text-base min-h-[120px]"
+                className="w-full bg-noir-800 border-2 border-noir-700/50 rounded-lg p-4 text-paper-100 placeholder:text-zinc-500 focus:outline-none focus:border-accent-gold hover:border-accent-gold hover:shadow-[0_0_15px_rgba(195,163,67,0.3)] focus:shadow-[0_0_15px_rgba(195,163,67,0.4)] transition-all duration-300 resize-none font-sans text-base min-h-[120px]"
               />
             </div>
 
@@ -321,7 +323,7 @@ export default function App() {
                   value={encPassword}
                   onChange={(e) => setEncPassword(e.target.value)}
                   placeholder="AES-256 Passphrase"
-                  className="w-full bg-noir-900/50 border border-noir-700 rounded-lg p-4 text-paper-100 placeholder:text-zinc-600 focus:outline-none focus:border-accent-gold hover:border-accent-gold hover:shadow-[0_0_15px_rgba(195,163,67,0.3)] focus:shadow-[0_0_15px_rgba(195,163,67,0.4)] transition-all duration-300 font-sans text-base pr-12"
+                  className="w-full bg-noir-800 border-2 border-noir-700/50 rounded-lg p-4 text-paper-100 placeholder:text-zinc-500 focus:outline-none focus:border-accent-gold hover:border-accent-gold hover:shadow-[0_0_15px_rgba(195,163,67,0.3)] focus:shadow-[0_0_15px_rgba(195,163,67,0.4)] transition-all duration-300 font-sans text-base pr-12"
                 />
                 <button
                   type="button"
@@ -413,7 +415,7 @@ export default function App() {
             {/* Image Upload */}
             <div className="space-y-3">
               <label className="text-xs uppercase tracking-[0.15em] text-zinc-500 font-medium">
-                Secured Artifact
+                Secured Image
               </label>
               <div className="relative group/upload">
                 <input
@@ -435,7 +437,7 @@ export default function App() {
                     <img
                       src={decPreview}
                       alt="Secured Artifact"
-                      className="w-full h-full object-cover opacity-90 grayscale-[0.2] mix-blend-luminosity"
+                      className="w-full h-full object-cover opacity-100"
                     />
                   ) : (
                     <div className="text-center px-6">
@@ -463,7 +465,7 @@ export default function App() {
                   value={decPassword}
                   onChange={(e) => setDecPassword(e.target.value)}
                   placeholder="AES-256 Passphrase"
-                  className="w-full bg-noir-900/50 border border-noir-700 rounded-lg p-4 text-paper-100 placeholder:text-zinc-600 focus:outline-none focus:border-accent-gold hover:border-accent-gold hover:shadow-[0_0_15px_rgba(195,163,67,0.3)] focus:shadow-[0_0_15px_rgba(195,163,67,0.4)] transition-all duration-300 font-sans text-base pr-12"
+                  className="w-full bg-noir-800 border-2 border-noir-700/50 rounded-lg p-4 text-paper-100 placeholder:text-zinc-500 focus:outline-none focus:border-accent-gold hover:border-accent-gold hover:shadow-[0_0_15px_rgba(195,163,67,0.3)] focus:shadow-[0_0_15px_rgba(195,163,67,0.4)] transition-all duration-300 font-sans text-base pr-12"
                 />
                 <button
                   type="button"
