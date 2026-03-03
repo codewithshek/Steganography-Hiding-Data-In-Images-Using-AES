@@ -1,47 +1,121 @@
 # 🌑 Obscura: Advanced Image Steganography
 
-**Obscura** is a premium, high-security web application that combines **AES-256 Cryptography** with **LSB (Least Significant Bit) Steganography**. It allows users to encrypt secret messages and hide them deep within the pixel matrix of standard PNG/JPG images.
+### A Premium High-Security Application for Data Encapsulation using AES-256 and LSB Steganography.
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.13+-blue.svg" alt="Python">
+  <img src="https://img.shields.io/badge/React-19-cyan.svg" alt="React">
+  <img src="https://img.shields.io/badge/Flask-Latest-lightgrey.svg" alt="Flask">
+  <img src="https://img.shields.io/badge/OpenCV-Latest-green.svg" alt="OpenCV">
+  <img src="https://img.shields.io/badge/TailwindCSS-4-teal.svg" alt="TailwindCSS">
+</p>
 
 ---
 
-## ✨ Key Features
+## 🛡️ About the Project
 
-- **Dual-Layer Security**: Messages are first encrypted using AES-256 (military-grade) and then woven into an image.
-- **Deterministic LSB Encoding**: Uses advanced image processing to ensure zero visual distortion in the carrier image.
-- **Modern Noir Aesthetics**: A premium, dark-themed UI built with React and GSAP for fluid, cinematic transitions.
-- **Auto-Transfer Flow**: Encrypted images are automatically mounted to the decryption module for seamless verification.
-- **Lossless Retrieval**: Pure pixel-to-byte extraction ensures your secrets are recovered exactly as they were hidden.
+**Obscura: Advanced Image Steganography** is a premium, high-security web application that combines **AES-256 Cryptography** with **LSB (Least Significant Bit) Steganography**. It allows users to encrypt secret messages and hide them deep within the pixel matrix of standard PNG/JPG images.
 
----
+### 🚀 Key Innovation: **Dual-Layer Security Architecture**
 
-## 🛠️ Technology Stack
+Unlike standard steganography tools, Obscura employs a dual-layered approach:
 
-### **Frontend**
-
-- **React 19** (Vite)
-- **Tailwind CSS** (Noir/Gold Design System)
-- **GSAP** (Smooth, immersive animations)
-- **Lucide React** (Minimalist iconography)
-
-### **Backend**
-
-- **Python / Flask**
-- **OpenCV** (Advanced Image Manipulation)
-- **PyCryptodome** (AES-256 Encryption)
-- **NumPy** (Pixel matrix operations)
+- **Military-Grade Encryption:** The text message is padded and encrypted using AES-256-CBC with a user-provided passphrase before embedding.
+- **Deterministic LSB Encoding:** Uses advanced image processing to ensure zero visual distortion in the carrier image by injecting into the Least Significant Bits of the RGB channels, preserving original aesthetics while hiding data in plain sight.
 
 ---
 
-## 🚀 Getting Started
+## 📷 Pictures
 
-### **1. Clone the Repository**
+|          Input          |            Processing             |          Output           |
+| :---------------------: | :-------------------------------: | :-----------------------: |
+| ![input.png](input.png) | ![processing.png](processing.png) | ![output.png](output.png) |
+
+## 🏗️ Technical Architecture
+
+This system is engineered for dual-layer security with a decoupled full-stack architecture:
+
+### 🧠 The Core Engine (Encryption & Embedding)
+
+- **Cryptography Component:** Utilizing **PyCryptodome** to securely encrypt data with AES-256-CBC.
+- **Image Processing Component:** Utilizing **OpenCV** and **NumPy** for advanced matrix operations, deterministically weaving the encrypted byte-stream into the carrier image pixels.
+
+### ⚡ Backend Services
+
+- **Flask & Gunicorn:** Serves the backend processing engine via high-performance REST endpoints.
+- **Lossless Retrieval:** Pure pixel-to-byte extraction ensures your secrets are recovered exactly as they were hidden.
+
+### 🔮 Frontend Interface
+
+- **React 19 & Vite:** Built with the latest React features for a responsive, component-driven UI.
+- **Visuals:** A Modern Noir Aesthetics theme incorporating **Tailwind CSS** and **GSAP** for smooth animations, fluid cinematic transitions, and a premium dark-themed aesthetic.
+
+---
+
+## 📁 Directory structure
+
+```
+codewithshek-Steganography-Hiding-Data-In-Images-Using-AES/
+    ├── README.md
+    ├── backend/
+    │   ├── app.py
+    │   ├── aes_cipher.py
+    │   ├── steganography.py
+    │   ├── requirements.txt
+    │   ├── test_manual.py
+    │   └── test_post.py
+    └── frontend/
+        ├── README.md
+        ├── App.tsx
+        ├── eslint.config.js
+        ├── index.css
+        ├── index.html
+        ├── package.json
+        ├── tsconfig.json
+        ├── vite.config.ts
+        ├── src/
+        │   ├── App.css
+        │   ├── App.tsx
+        │   ├── index.css
+        │   ├── main.tsx
+        │   └── components/
+        │       └── ThemeToggle.tsx
+```
+
+## 🌟 Key Features
+
+- 🧠 **Dual-Layer Security:** Messages are first encrypted using AES-256 and then woven into an image.
+- 📊 **Deterministic LSB Encoding:** Uses advanced image processing to ensure zero visual distortion in the carrier image.
+- 🤖 **Modern Noir Aesthetics:** A premium, dark-themed UI built with React, GSAP, and Tailwind CSS for fluid, cinematic transitions.
+- 📉 **Auto-Transfer Flow:** Encrypted images are automatically mounted to the decryption module for seamless verification.
+- 🛡️ **Lossless Retrieval:** Pure pixel-to-byte extraction ensures your secrets are recovered exactly as they were hidden.
+
+---
+
+## 🛠️ Tech Stack
+
+| Component       | Technologies                                                |
+| :-------------- | :---------------------------------------------------------- |
+| **Core Engine** | `Python 3.13`, `OpenCV`, `NumPy`, `PyCryptodome`            |
+| **Backend API** | `Flask`, `Gunicorn`, `Werkzeug`, `Flask-CORS`               |
+| **Frontend UI** | `React 19`, `Vite`, `Tailwind CSS`, `Framer Motion`, `GSAP` |
+
+---
+
+## ⚙️ Installation & Setup
+
+Follow these steps to deploy the application locally.
+
+### Step 1: Clone the Repository
 
 ```bash
 git clone https://github.com/codewithshek/Steganography-Hiding-Data-In-Images-Using-AES.git
 cd Steganography-Hiding-Data-In-Images-Using-AES
 ```
 
-### **2. Setup Backend**
+### Step 2: Backend Setup
+
+Initialize the core engine and Flask API server.
 
 ```bash
 cd backend
@@ -51,7 +125,9 @@ pip install -r requirements.txt
 python app.py
 ```
 
-### **3. Setup Frontend**
+### Step 3: Frontend Setup
+
+Launch the interactive user interface.
 
 ```bash
 cd frontend
@@ -61,40 +137,12 @@ npm run dev
 
 ---
 
-## ☁️ Deployment Guide
+## 📈 Security Performance
 
-This project is configured for a split-cloud deployment:
-
-### **Netlify (Frontend)**
-
-1. Connect your repository to **Netlify**.
-2. Set **Base Directory** to `frontend`.
-3. Set **Build Command** to `npm run build`.
-4. Set **Publish Directory** to `dist`.
-5. Add Environment Variable: `VITE_API_URL` = [Your Backend URL].
-
-### **Render (Backend)**
-
-1. Create a **Web Service** on **Render.com**.
-2. Set **Root Directory** to `backend`.
-3. Set **Build Command** to `pip install -r requirements.txt`.
-4. Set **Start Command** to `gunicorn app:app`.
+The Dual-Layer formulation ensures high data confidentiality. The initial AES-256 encryption encrypts plaintext making it highly resistant to brute-force attacks. Furthermore, the LSB embedding methodology provides robust steganographic security by modifying the least significant bits, creating zero perceptible visual distortion in the carrier image, avoiding suspicion entirely.
 
 ---
 
-## 📜 How it Works
+## 📜 Disclaimer
 
-1.  **Encryption**: The text message is padded and encrypted using AES-256-CBC with a user-provided passphrase.
-2.  **Conversion**: The encrypted ciphertext is converted into a bitstream.
-3.  **Embedding**: The bitstream is injected into the Least Significant Bits of the image's RGB channels.
-4.  **Decryption**: The process is reversed—bits are extracted, grouped into bytes, and decrypted back into plain text.
-
----
-
-## ⚖️ License
-
-Distributed under the MIT License. See `LICENSE` for more information.
-
----
-
-**Built with 🖤 for secure communication.**
+This Project Is Part Of My College course end Project.
