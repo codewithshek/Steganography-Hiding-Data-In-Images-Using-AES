@@ -1,4 +1,4 @@
-# 🌑 Obscura: Advanced Image Steganography
+# Advanced Image Steganography
 
 ### A Premium High-Security Application for Data Encapsulation using AES-256 and LSB Steganography.
 
@@ -14,11 +14,11 @@
 
 ## 🛡️ About the Project
 
-**Obscura: Advanced Image Steganography** is a premium, high-security web application that combines **AES-256 Cryptography** with **LSB (Least Significant Bit) Steganography**. It allows users to encrypt secret messages and hide them deep within the pixel matrix of standard PNG/JPG images.
+**Advanced Image Steganography** is a premium, high-security web application that combines **AES-256 Cryptography** with **LSB (Least Significant Bit) Steganography**. It allows users to encrypt secret messages and hide them deep within the pixel matrix of standard PNG/JPG images.
 
 ### 🚀 Key Innovation: **Dual-Layer Security Architecture**
 
-Unlike standard steganography tools, Obscura employs a dual-layered approach:
+Unlike standard steganography tools, employs a dual-layered approach:
 
 - **Military-Grade Encryption:** The text message is padded and encrypted using AES-256-CBC with a user-provided passphrase before embedding.
 - **Deterministic LSB Encoding:** Uses advanced image processing to ensure zero visual distortion in the carrier image by injecting into the Least Significant Bits of the RGB channels, preserving original aesthetics while hiding data in plain sight.
@@ -27,9 +27,8 @@ Unlike standard steganography tools, Obscura employs a dual-layered approach:
 
 ## 📷 Pictures
 
-|          Input          |            Processing             |          Output           |
-| :---------------------: | :-------------------------------: | :-----------------------: |
-| ![input.png](input.png) | ![processing.png](processing.png) | ![output.png](output.png) |
+|          Ouput         | 
+| ![input.png](input.png) |
 
 ## 🏗️ Technical Architecture
 
@@ -55,31 +54,34 @@ This system is engineered for dual-layer security with a decoupled full-stack ar
 ## 📁 Directory structure
 
 ```
-codewithshek-Steganography-Hiding-Data-In-Images-Using-AES/
+codewithshek-steganography-hiding-data-in-images-using-aes/
     ├── README.md
+    ├── package.json
+    ├── render.yaml
     ├── backend/
-    │   ├── app.py
     │   ├── aes_cipher.py
-    │   ├── steganography.py
+    │   ├── app.py
     │   ├── requirements.txt
+    │   ├── steganography.py
     │   ├── test_manual.py
     │   └── test_post.py
     └── frontend/
-        ├── README.md
-        ├── App.tsx
         ├── eslint.config.js
-        ├── index.css
         ├── index.html
+        ├── netlify.toml
         ├── package.json
+        ├── tsconfig.app.json
         ├── tsconfig.json
+        ├── tsconfig.node.json
         ├── vite.config.ts
-        ├── src/
-        │   ├── App.css
-        │   ├── App.tsx
-        │   ├── index.css
-        │   ├── main.tsx
-        │   └── components/
-        │       └── ThemeToggle.tsx
+        ├── .gitignore copy
+        └── src/
+            ├── App.css
+            ├── App.tsx
+            ├── index.css
+            ├── main.tsx
+            └── components/
+                └── ThemeToggle.tsx
 ```
 
 ## 🌟 Key Features
